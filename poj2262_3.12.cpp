@@ -42,10 +42,11 @@ Ulm Local 1998
 #include<iostream>
 #include<cmath>
 #include<cstdio>
+#include<iomanip>
 #define N 1000001
 using namespace std;
 bool a[N];
-void primelist()
+void primelist()//0ÊÇËØÊý
 {
      a[0]=a[1]=1;
      for(int i=2;i<N;i++)
@@ -56,6 +57,10 @@ void primelist()
 int main()
 {
     int n;primelist();
+    for(int i=0;i<1000;i++){
+        cout<<"a["<<i<<"]="<<a[i]<<"  "<<'\t';
+        if(i%5==0)cout<<endl;
+    }
     while(scanf("%d",&n))
     {
         if(n==0)break;
