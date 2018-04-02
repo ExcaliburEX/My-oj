@@ -35,37 +35,31 @@ N个操作(如果是入栈则后面还会有一个入栈元素)
 #include<cstring>
 #include<algorithm>
 using namespace std;
-const int maxn=1000+1;
-int a[maxn],k[maxn];
-int n,top=0;
-void pop()
-{
+int s[1000],top=0;
+
+void pop(){
     top--;
 }
-int push(int s)
-{
+
+int push(int k){
     top++;
-    k[top]=s;
+    s[top]=k;
 }
-int main()
-{
-    int r;
-    scanf("%d",&n);
-    for(int i=1;i<=n;i++)
-    {
-        scanf("%d",&a[i]);
-        if(a[i]==2)
-        {
+
+int main(){
+    int n,a,b;
+    cin>>n;
+    while(n--){
+        cin>>a;
+        if(a==1){
+            cin>>b;
+            push(b);
+        }
+        if(a==2){
             pop();
         }
-        else if(a[i]==1)
-        {
-            scanf("%d",&r);
-            push(r);
-        }
     }
-    if(top==0)
-    cout<<"impossible!";
-    else cout<<k[top]<<endl;
+    if(!top)cout<<"Impossible!";
+    else cout<<s[top];
     return 0;
 }
